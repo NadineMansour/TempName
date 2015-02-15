@@ -10,3 +10,4 @@
 |Maryam Mohamed Fawzy | 25-2200 |
 |Mohamed Raouf | 28-2130 |
 |Marwa Regal | 28-5495|
+|Ali Soliman | 28-13627|

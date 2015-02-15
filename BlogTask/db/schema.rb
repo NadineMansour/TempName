@@ -11,7 +11,11 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
+<<<<<<< HEAD
 ActiveRecord::Schema.define(version: 20150214223455) do
+=======
+ActiveRecord::Schema.define(version: 20150215080618) do
+>>>>>>> df8aad44a1e1477aa5147fed7a0e433dc7c98f97
 
   create_table "admins", force: :cascade do |t|
     t.string   "username"
@@ -25,6 +29,16 @@ ActiveRecord::Schema.define(version: 20150214223455) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
+
+  create_table "categoryofposts", force: :cascade do |t|
+    t.integer  "post_id"
+    t.integer  "category_id"
+    t.datetime "created_at",  null: false
+    t.datetime "updated_at",  null: false
+  end
+
+  add_index "categoryofposts", ["category_id"], name: "index_categoryofposts_on_category_id"
+  add_index "categoryofposts", ["post_id"], name: "index_categoryofposts_on_post_id"
 
   create_table "comments", force: :cascade do |t|
     t.text     "body"
@@ -57,5 +71,7 @@ ActiveRecord::Schema.define(version: 20150214223455) do
     t.datetime "created_at",   null: false
     t.datetime "updated_at",   null: false
   end
+
+  add_index "users", ["username"], name: "index_users_on_username"
 
 end
