@@ -11,4 +11,7 @@ class User < ActiveRecord::Base
     minimum: 0,
     maximum: 30
 	}
+	scope :authenticated, -> {
+	where(auth: true)
+	}
 end
