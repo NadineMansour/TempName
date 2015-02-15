@@ -3,7 +3,7 @@ class Post < ActiveRecord::Base
 
 	#edited by mariam
 	#has_many :categories
-	has_many :categories
+	has_many :categoryofpost
 	has_many :related_categories, class_name: "Category", through: :categoryofposts , source: :category
 	# end
 	has_many :comments
