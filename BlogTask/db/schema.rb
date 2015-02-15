@@ -11,11 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-<<<<<<< HEAD
-ActiveRecord::Schema.define(version: 20150214223455) do
-=======
-ActiveRecord::Schema.define(version: 20150215080618) do
->>>>>>> df8aad44a1e1477aa5147fed7a0e433dc7c98f97
+ActiveRecord::Schema.define(version: 20150215194223) do
 
   create_table "admins", force: :cascade do |t|
     t.string   "username"
@@ -70,6 +66,7 @@ ActiveRecord::Schema.define(version: 20150215080618) do
     t.string   "profileImage"
     t.datetime "created_at",   null: false
     t.datetime "updated_at",   null: false
+    t.boolean  "request"
   end
 
   add_index "users", ["username"], name: "index_users_on_username"
