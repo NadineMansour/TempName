@@ -1,0 +1,10 @@
+<% if owns_profile_helper? @user %>
+	<%= form_tag edit_profile_picture_user_path @user , :html => {:multipart => true} do %>
+		<%= label_tag :image_url %>
+		<%= text_field_tag :image_url %><br />
+
+		<%= file_field_tag :image %> 
+
+		<%= submit_tag %>
+	<% end %>
+<% end %>
