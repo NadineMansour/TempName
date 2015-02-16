@@ -5,6 +5,9 @@ Rails.application.routes.draw do
   resources :posts
   resources :categories
   resources :users
+  get '/admin/show_requests', to: 'admins#show_requests'
+  post '/admin/accept_request', to: 'admins#accept_request'
+  post '/admin/reject_request', to: 'admins#reject_request'
   # end mariam
 
 

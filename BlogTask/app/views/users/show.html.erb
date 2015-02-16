@@ -1,13 +1,13 @@
 <!-- creayte new post - edited_by mariam -->
-<% if auth_user_profile?(1) #check current_user %>
-	<%= form_for @post do |p| %>
+<% if auth_user_profile?(1) %>
+	<%= form_for @post, :url => posts_path, :remote=>true  do |p| %>
 		<%= p.label :title %>
 		<%= p.text_field :title %>
 		<br>
 		<%= p.label :body %>
 		<%= p.text_area :body %>
 		<br>
-		<p>Related_to : </p>
+		<p>Related to : </p>
 		<br>
 		<%= collection_check_boxes(:post, :related_categories, Category.all, :id, :name) %> 
 		<br>

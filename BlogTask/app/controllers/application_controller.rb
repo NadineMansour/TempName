@@ -7,8 +7,9 @@ class ApplicationController < ActionController::Base
   #edited by mariam
   protected
   def auth_user_profile?(profile_id)
-  	# I will check the name of the session later
-  	# if session[:user_id] == profile_id
+  	#I will check the name of the session later
+  	# @user = User.find(profile_id)
+  	# if session[:user_id] == profile_id && @user.auth
   	# 	true
   	# else
   	# 	false
@@ -16,5 +17,11 @@ class ApplicationController < ActionController::Base
   	true
   end
   helper_method :auth_user_profile?
+
+  # def get_requests
+  #   User.find_by(request: true)
+  # end
+  # helper_method :get_requests?
+
   #end
 end
