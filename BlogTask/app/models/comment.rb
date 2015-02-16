@@ -5,7 +5,6 @@ class Comment < ActiveRecord::Base
 	#end
 	has_many :replies
 	validates :body, length: {
-    minimum: 1,
     maximum: 150
 	}
 end
