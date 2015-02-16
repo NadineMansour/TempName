@@ -8,7 +8,7 @@ class Post < ActiveRecord::Base
 	#end
 	has_many :comments
 	has_many :image
-	validates :content, length: {
+	validates :body, length: {
     minimum: 1,
     maximum: 400
 	}
