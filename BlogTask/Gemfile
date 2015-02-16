@@ -1,8 +1,9 @@
-source 'https://rubygems.org'
+source 'http://rubygems.org'
 
 gem 'tzinfo-data'
 gem 'bootstrap-sass'
 gem 'social-share-button', '~> 0.1.6'
+gem 'devise'
 
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails', '4.2.0'
