@@ -1,6 +1,11 @@
 class Post < ActiveRecord::Base
-	belongs_to :user
-	has_many :categories
+	#edited_by_mariam
+	belongs_to :user, dependent: :destroy
+	#edited_by_mariam
+	#has_many :categories
+	has_many :categoryofposts
+	has_many :related_categories, class_name: "Category", through: :categoryofposts , source: :category
+	#end
 	has_many :comments
 	has_many :image
 	validates :content, length: {

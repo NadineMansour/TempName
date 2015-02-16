@@ -1,6 +1,8 @@
 class Comment < ActiveRecord::Base
-	belongs_to :user
-	belongs_to :post
+	#edited_by_mariam
+	belongs_to :user , dependent: :destroy
+	belongs_to :post , dependent: :destroy
+	#end
 	has_many :replies
 	validates :body, length: {
     minimum: 1,

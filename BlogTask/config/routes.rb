@@ -3,6 +3,8 @@ Rails.application.routes.draw do
   #edited by mariam
   #add posts resources
   resources :posts
+  resources :categories
+  resources :users
   # end mariam
 
 
