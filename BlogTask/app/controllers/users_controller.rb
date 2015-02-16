@@ -28,7 +28,30 @@ class UsersController < ApplicationController
 	end
 
 	def show
+		@user = User.find(params[:id])
 		@post = Post.new
-		@user = User.find params[:id]
+		#@posts = Post.find(userId: @user.id )
 	end
-end
+
+	def new
+		 @user = User.new
+		
+    end
+
+    def create
+    @user = User.new(user_params)    # Not the final implementation!
+   	if @user.save
+   		flash[:success] = "Welcome to the Game!"
+    		redirect_to @user
+    else
+      render 'new'
+    end
+	end
+	
+	private
+
+	def user_params
+      params.require(:user).permit(:username, :name, :password)
+  	end
+
+ end
