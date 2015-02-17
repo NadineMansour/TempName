@@ -1,26 +1,15 @@
 <% @posts.each do |post| %>
-	<% @post_user =  post.user %>
-	<% if false %> <!-- just for testing %>
-		<%= @post_user.name %>
+	<pre>Title:
+	<%= post[:title] %>
+	</pre>
+	<br>
+	<pre>Body:
+	<%= post[:body] %>
+	</pre>
+	<br>
+	<% @temp_post = Post.find(post[:id]) %>
+	<% @att = @temp_post.post_attachments.all %>
+	<% @att.each do |p| %>
+	  <%= image_tag p.avatar_url %>
 	<% end %>
-	title: <%= post.title %><br>
-	post: <%= post.body %><br>
-	<% if false %>
-	<% @comments = post.comments %>
-	<% @comments.each do |comment|%>
-	<% @comment_user =  comment.user %>
-	<%= @comment_user.name %>
-		<%= comment.text %>
-		<br>
-		<% @replies = comment.replies %>
-		<% @replies.each do |reply| %>
-          
-          <% @reply_user =  reply.user %>
-	      <%= @reply_user.name %>
-
-			<%= reply.body %>
-		<% end %> 
-	<% end%>
-	<% end %>
-
 <% end %>
