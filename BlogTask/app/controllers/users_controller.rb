@@ -10,6 +10,11 @@ class UsersController < ApplicationController
 		redirect_to User.find(params[:id])
 	end
 
+	def change_info
+		User.update(params[:id] , information: params[:info])
+		redirect_to User.find(params[:id])
+	end
+
 
 	def edit_display_picture
 		

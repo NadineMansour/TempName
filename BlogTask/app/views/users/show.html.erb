@@ -15,6 +15,18 @@
 </p>
 
 <% end %>
+<%= form_tag change_info_user_path @user , method: :change_info do %>
+<p>
+	<%= "Add Information" %>
+	<%= text_field_tag :info %>
+</p>
+
+<p>
+	<%= submit_tag "Update" %>
+</p>
+
+<% end %>
+
 
 <!-- edited by oufa -->
 	<%= form_tag edit_display_picture_user_path @user , :html => {:multipart => true}, method: :post do %>
