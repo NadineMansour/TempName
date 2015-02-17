@@ -1,4 +1,4 @@
-<%= form_for @post do |p| %>
+<%= form_for @post, :html => { :multipart => true } do |p| %>
 	<%= p.label :title %>
 	<%= p.text_field :title %>
 	<br>
@@ -8,6 +8,11 @@
 	<p>Related to : </p>
 	<br>
 	<%= p.collection_check_boxes :category_ids, Category.all, :id, :name %>
+	<br>
+	<%= p.fields_for :post_attachments do |f| %>
+       <%= f.label :avatar %><br>
+       <%= f.file_field :avatar, :multiple => true, name: "post_attachments[avatar][]" %>
+   <% end %>
 	<br>
 	<%= p.submit "Create" %>
 <% end %>

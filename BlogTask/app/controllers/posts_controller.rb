@@ -5,6 +5,7 @@ class PostsController < ApplicationController
 
 	def new
 		@post = Post.new
+		@post_attachment = @post.post_attachments.build
 	end
 
 	def create
@@ -12,6 +13,9 @@ class PostsController < ApplicationController
 		#@post_params[:user_id] = session[:user_id]
 		@post = Post.new(@post_params)
 		if @post.save
+			params[:post_attachments]['avatar'].each do |a|
+            	@post_attachment = @post.post_attachments.create!(:avatar => a, :post_id => @post.id)
+        	end
 			redirect_to @post, notice: "The post has been posted successfully."
 		else
 			render action: :new, alert: "The post has not been posted."
@@ -29,6 +33,6 @@ class PostsController < ApplicationController
 
   protected
 	def post_params
-		params.require(:post).permit(:title, :body, category_ids: [])
+		params.require(:post).permit(:title, :body, category_ids: [], post_attachments_attributes: [:id, :post_id, :avatar])
 	end
 end

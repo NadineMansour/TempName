@@ -1,8 +1,11 @@
 <% @posts.each do |post| %>
 	<% @post_user =  post.user %>
-	<%= @post_user.name %>
+	<% if false %> <!-- just for testing %>
+		<%= @post_user.name %>
+	<% end %>
 	title: <%= post.title %><br>
 	post: <%= post.body %><br>
+	<% if false %>
 	<% @comments = post.comments %>
 	<% @comments.each do |comment|%>
 	<% @comment_user =  comment.user %>
@@ -18,5 +21,6 @@
 			<%= reply.body %>
 		<% end %> 
 	<% end%>
+	<% end %>
 
 <% end %>

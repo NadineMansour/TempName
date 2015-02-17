@@ -1,5 +1,7 @@
 Rails.application.routes.draw do
 
+  resources :post_attachments
+
   #edited by mariam
   #add posts resources
   resources :posts
