@@ -12,4 +12,8 @@ class User < ActiveRecord::Base
 	scope :authenticated, -> {
 	where(auth: true)
 	}
+	scope :unauthenticated, -> {
+		where(auth:false)
+	}
+	 mount_uploader :profileImage, ImageUploader
 end

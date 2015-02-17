@@ -1,6 +1,7 @@
 class PostsController < ApplicationController
+	
 	def index
-		@posts = Post.order(created_at: :desc)
+		@posts = Post.all.order(created_at: :desc)
 	end
 
 	def new
@@ -9,6 +10,7 @@ class PostsController < ApplicationController
 	end
 
 	def create
+
 		@post_params = post_params
 		#@post_params[:user_id] = session[:user_id]
 		@post = Post.new(@post_params)
@@ -36,3 +38,4 @@ class PostsController < ApplicationController
 		params.require(:post).permit(:title, :body, category_ids: [], post_attachments_attributes: [:id, :post_id, :avatar])
 	end
 end
+

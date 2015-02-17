@@ -10,7 +10,7 @@ class Post < ActiveRecord::Base
 	#has_many :related_categories, class_name: "Category", through: :categoryofposts , source: :category
 	#end
 	has_many :comments
-	has_many :image
+
 	validates :body, length: {
     minimum: 1,
     maximum: 400
@@ -19,5 +19,4 @@ class Post < ActiveRecord::Base
     minimum: 1,
     maximum: 60
 	}
-	mount_uploader :image, ImageUploader 
 end

@@ -1,6 +1,10 @@
 class AdminsController < ApplicationController
+
 	def authenticated_users
-		@authenticated_users = user.authenticated 
+		@authenticated_users = User.authenticated 
+	end
+	def unauthenticated_users
+		@unauthenticated_users = User.unauthenticated 
 	end
 
 	#edited by mariam
