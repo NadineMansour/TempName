@@ -35,6 +35,7 @@
 		<%= p.label :body %>
 		<%= p.text_area :body %>
 		<br>
+		<%= social_share_button_tag("My Site") %>
 		<p>Related to : </p>
 		<br>
 		<%= collection_check_boxes(:post, :related_categories, Category.all, :id, :name) %> 
