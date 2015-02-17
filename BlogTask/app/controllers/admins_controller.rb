@@ -6,6 +6,10 @@ class AdminsController < ApplicationController
 	def unauthenticated_users
 		@unauthenticated_users = User.unauthenticated 
 	end
+	def show
+	 @admin = Admin.find(params[:id])
+	end
+
 
 	#edited by mariam
 	def show_requests
