@@ -10,7 +10,8 @@ get 'signup'  => 'users#new'
   resources :users do
     member do
       post :edit_display_picture
-	  post :change_username
+	    post :change_username
+      post :change_signature
     end
   end
   get '/admin/show_requests', to: 'admins#show_requests'

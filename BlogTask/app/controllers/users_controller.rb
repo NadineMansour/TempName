@@ -1,9 +1,14 @@
 class UsersController < ApplicationController
 	
-		def change_username
+	def change_username
 		User.update(params[:id], username: params[:un])
 		redirect_to User.find(params[:id])
 	end	
+
+	def change_signature
+		User.update(params[:id] , signature: params[:sig])
+		redirect_to User.find(params[:id])
+	end
 
 
 	def edit_display_picture
