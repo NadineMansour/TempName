@@ -10,6 +10,8 @@ Rails.application.routes.draw do
   get '/admin/reject_request', to: 'admins#reject_request'
   # end mariam
 
+  root 'homepages#home'
+
 
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".

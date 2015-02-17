@@ -1,0 +1,153 @@
+#header
+{
+	background-color: #ffffff;
+	text-align:center;
+	}
+
+#header h1 
+{
+	color: #DA131D;
+	font-size: 75px;
+	font-family: Impact, Haettenschweiler, 'Franklin Gothic Bold', Charcoal, 'Helvetica Inserat', 'Bitstream Vera Sans Bold', 'Arial Black', 'sans serif';
+		
+}
+
+#Body1 
+{
+	background-color: #DA131D;
+	text-align:center;
+}
+
+#Body1 h1
+{
+	color: #ffffff;
+	text-align: center;
+	font-size: 50px;
+	font-family: Optima, Segoe, 'Segoe UI', Candara, Calibri, Arial, sans-serif;
+	text-decoration: underline;
+}
+
+#Body1 img
+{
+	padding-top: 5px;
+	width: 40%;
+	height: 400px;
+	width: 600px;
+	max-width: 100%;
+	max-height: 100%;
+}
+
+#Body1 h3
+{
+	color: #ffffff;
+	font-family: Optima, Segoe, 'Segoe UI', Candara, Calibri, Arial, sans-serif;
+	text-decoration: underline;
+	font-size: 30px;
+}
+
+#Body1 p
+{
+	color: #ffffff;
+	font-family: Optima, Segoe, 'Segoe UI', Candara, Calibri, Arial, sans-serif;
+	text-decoration: none;
+	font-size: 22px;	
+}
+
+#Body2
+{
+	background-color: #ffffff;
+	text-align: center;
+	padding-bottom: 3px;
+}
+
+#Body2 h1
+{
+	color: #DA131D;
+	text-align: center;
+	font-size: 50px;
+	font-family: Optima, Segoe, 'Segoe UI', Candara, Calibri, Arial, sans-serif;
+	text-decoration: underline;
+}
+
+#Body2 table
+{
+	text-align: center;
+	width: 100%;
+	border: 3px solid #DA131D;
+}
+
+#Body2 table tr td
+{
+	width: 33%
+}
+
+#Body2 img
+{
+	max-height: 300px;
+}
+
+#Body2 a
+{
+	text-align: right;
+	color: #0000ff;
+}
+
+#Body3
+{
+	background-color: #DA131D;
+	text-align: center; 
+	padding-bottom: 5px;
+}
+
+#Body3 h1
+{
+	color: #ffffff;
+	text-align: center;
+	text-decoration: underline;
+	font-size: 50px;
+	font-family: Optima, Segoe, 'Segoe UI', Candara, Calibri, Arial, sans-serif;
+}
+
+#Body3 h3
+{
+	color: #ffffff;
+	font-family: Optima, Segoe, 'Segoe UI', Candara, Calibri, Arial, sans-serif;
+	text-decoration: underline;
+	font-size: 30px;	
+}
+
+#Body3 img
+{
+	width: 300px;
+	height: 400px;
+}
+
+#Body4 {
+	background-color: #ffffff;
+	text-align: center; 
+	padding-bottom: 5px;
+}
+
+#Body4 h1
+{
+	color: #DA131D;
+	text-align: center;
+	text-decoration: underline;
+	font-size: 50px;
+	font-family: Optima, Segoe, 'Segoe UI', Candara, Calibri, Arial, sans-serif;
+}
+
+#Footer
+{
+	padding-bottom: 3px;
+	color: #ffffff;
+	background-color: #DA131D;
+	text-align: center;
+	font-family: Optima, Segoe, 'Segoe UI', Candara, Calibri, Arial, sans-serif;
+}
+
+#Footer a
+{
+	color: #ffffff;
+	font-size: 30px;
+}
