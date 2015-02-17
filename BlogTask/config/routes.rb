@@ -3,7 +3,24 @@ Rails.application.routes.draw do
   #edited by mariam
   #add posts resources
   resources :posts
+  resources :categories
+  resources :users do
+    member do
+      post :edit_display_picture
+    end
+  end
+  get '/admin/show_requests', to: 'admins#show_requests'
+  get '/admin/accept_request', to: 'admins#accept_request'
+  get '/admin/reject_request', to: 'admins#reject_request'
   # end mariam
+  resources :admins do
+    collection do
+      get 'authenticated_users'
+      get'unauthenticated_users'
+    end
+  end
+
+  root 'homepages#home'
 
 
   # The priority is based upon order of creation: first created -> highest priority.
