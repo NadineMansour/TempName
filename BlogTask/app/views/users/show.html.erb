@@ -25,9 +25,12 @@
 		<%= "Name :" %> <%=@user.name %></br>
 		<%= "Email :" %> <%=@user.email %></br>
 		<%= '" '  %> <%=@user.information %> <%= ' " '  %> </br>
-		<div id="edit">
-			<%= link_to "Edit your information" , '/user/edit_info' %>
-		</div>
+		 
+		<% if @user.id = current_user.id %>
+			<div id="edit">
+				<%= link_to "Edit your information" , '/user/edit_info' %>
+			</div>
+		<% end -%>
 	</div>
 
 	<div id="userPosts">
