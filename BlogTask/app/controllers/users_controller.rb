@@ -21,7 +21,6 @@ class UsersController < ApplicationController
 
 	def edit_display_picture
 		@user = current_user
-		binding.pry
 		if params[:image].present?
 			@user.profileImage = params[:image]
 		elsif params[:image_url].present?
@@ -38,7 +37,6 @@ class UsersController < ApplicationController
 		else 
 			flash[:error] = "Something went wrong!"
 			puts "***********"
-			p @user.errors
 			redirect_to :back
 		end 	
 	end
@@ -67,7 +65,6 @@ class UsersController < ApplicationController
 	end
 	
 	private
-
 	def user_params
       params.require(:user).permit(:username, :name, :password)
   	end

@@ -17,7 +17,8 @@ class PostsController < ApplicationController
 	def create
 
 		@post_params = post_params
-		#@post_params[:user_id] = session[:user_id]
+		
+		@post_params[:user_id] = current_user.id
 		@post = Post.new(@post_params)
 		if @post.save
 			if (params[:post_attachments])
