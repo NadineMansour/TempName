@@ -15,7 +15,6 @@ class PostsController < ApplicationController
 	end
 
 	def create
-
 		@post_params = post_params
 		
 		@post_params[:user_id] = current_user.id
@@ -40,6 +39,13 @@ class PostsController < ApplicationController
 
 	def destroy
 	end
+
+	def show
+		@post = Post.find(params[:id])
+		@posted_by = User.find(@post.user_id)
+		@comments = Comment.where(post_id: @post.id)
+	end
+
 
   protected
 	def post_params

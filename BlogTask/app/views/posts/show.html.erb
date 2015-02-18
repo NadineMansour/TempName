@@ -1,0 +1,34 @@
+<div></div>
+
+<br/>
+<br/>
+<br/>
+
+Posted by: <%= @posted_by.email %> 
+<br/>
+	
+</br>
+
+<div>
+	Title: <%= @post.title %></br>
+	Text: <%= @post.body %></br>
+</div>
+<br/>
+<br/>
+
+Comments:
+<br/>
+<table>
+	<tr>
+		<th>Posted by</th>
+		<th>comment</th>
+		<th>Replies</th>
+	</tr>
+<% @comments.each do |c| %>
+<% u = User.find(c.user_id) %>
+	<tr>
+		<td><%= u.email %></td>
+		<td><%= c.body %></td>
+	</tr>
+<% end %>
+</table>
