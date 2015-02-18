@@ -14,11 +14,14 @@ get 'signup'  => 'users#new'
 	    post :add_info
       post :change_signature
       post :change_info
+
     end
   end
   get '/admin/show_requests', to: 'admins#show_requests'
   get '/admin/accept_request', to: 'admins#accept_request'
   get '/admin/reject_request', to: 'admins#reject_request'
+  get '/user/edit_info', to:'users#edit_info'
+
   # end mariam
   resources :admins do
     collection do

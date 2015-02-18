@@ -19,10 +19,6 @@ class ApplicationController < ActionController::Base
   helper_method :auth_user_profile?
   
   #edited_by_mariam
-  def authenticate_user!
-    redirect_to root_path , alert: 'You have to login first!' unless user_current?
-  end
-
   def authenticated_user!
     @user_current = user_current
     if @user_current

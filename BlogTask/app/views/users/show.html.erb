@@ -1,39 +1,5 @@
 <%= image_tag(@user.profileImage) %>
 
-<!-- edited by Nadine -->
-<%= form_tag change_signature_user_path @user , method: :change_signature do %>
-<p>
-	<%= "add a signature" %>
-	<%= text_field_tag :sig %>
-</p>
-<p>
-<%= submit_tag "add signature"%>
-</p>
-
-<% end %>
-<%= form_tag change_info_user_path @user , method: :change_info do %>
-<p>
-	<%= "Add Information" %>
-	<%= text_field_tag :info %>
-</p>
-
-<p>
-	<%= submit_tag "Update" %>
-</p>
-
-<% end %>
-
-
-<!-- edited by oufa -->
-	<%= form_tag edit_display_picture_user_path @user , :html => {:multipart => true}, method: :post do %>
-		<%= label_tag :image_url %>
-		<%= text_field_tag :image_url %><br />
-
-		<%= file_field_tag :image %> 
-
-		<%= submit_tag %>
-	<% end %>
-
 <!-- creayte new post - edited_by mariam -->
 <% if auth_user_profile?(1) %>
 	<%= form_for @post, :url => posts_path, :remote=>true  do |p| %>
@@ -53,3 +19,4 @@
 <% end %>
 <!-- end -->
 
+<%= link_to "Edit info", '/user/edit_info' %>
