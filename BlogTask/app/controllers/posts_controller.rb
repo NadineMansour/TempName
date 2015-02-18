@@ -1,5 +1,10 @@
 class PostsController < ApplicationController
 	
+	#to be added later : mariam
+	#before_action :authenticate_user!, except: [:index]
+	#before_action :authenticated_user!, only: [:new, :create]
+	#end mariam
+
 	def index
 		@posts = Post.all.order(created_at: :desc)
 	end

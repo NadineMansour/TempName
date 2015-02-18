@@ -1,5 +1,9 @@
 class CategoriesController < ApplicationController
+	#mariam : to be added later
+	#before_action :authenticated_user!, only: [:new, :create]
+	#end
 	def index
+		@categories = Category.all
 	end
 
 	def new
@@ -7,6 +11,7 @@ class CategoriesController < ApplicationController
 	end
 
 	def show
+		@category = Category.find(params[:id])
 	end
 
 	def create

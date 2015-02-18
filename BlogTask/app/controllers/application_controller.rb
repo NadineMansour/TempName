@@ -17,6 +17,33 @@ class ApplicationController < ActionController::Base
   	true
   end
   helper_method :auth_user_profile?
+  
+  #edited_by_mariam
+  def authenticate_user!
+    redirect_to root_path , alert: 'You have to login first!' unless user_current?
+  end
+
+  def authenticated_user!
+    @user_current = user_current
+    if @user_current
+      unless @user_current.auth
+        redirect_to root_path , alert: 'You are not an authenticated user!'
+      end
+    else
+      redirect_to root_path , alert: 'You have to login first!'
+    end
+  end
+
+  def user_current
+    @user_current ||= User.find(session[:user_id]) if session.key?(:user_id)
+  end
+  helper_method :user_current
+
+  def user_current?
+    user_current.present?
+  end
+  helper_method :user_current?
+  #end mariam
 
   def after_sign_in_path_for(resource)
   	user_path(current_user)

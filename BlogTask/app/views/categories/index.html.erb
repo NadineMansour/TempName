@@ -1,0 +1,5 @@
+<% @categories.each do |category| %>
+	<% @category = Category.find(category[:id]) %>
+	Category : <%= link_to category[:name] , @category %>
+	<br>
+<% end %>
