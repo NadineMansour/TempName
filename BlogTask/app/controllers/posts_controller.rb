@@ -15,8 +15,10 @@ class PostsController < ApplicationController
 		#@post_params[:user_id] = session[:user_id]
 		@post = Post.new(@post_params)
 		if @post.save
-			params[:post_attachments]['avatar'].each do |a|
-            	@post_attachment = @post.post_attachments.create!(:avatar => a, :post_id => @post.id)
+			if (params[:post_attachments])
+				params[:post_attachments]['avatar'].each do |a|
+	            	@post_attachment = @post.post_attachments.create!(:avatar => a, :post_id => @post.id)
+	        	end
         	end
 			redirect_to @post, notice: "The post has been posted successfully."
 		else
