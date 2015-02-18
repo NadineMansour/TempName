@@ -2,36 +2,47 @@
 </div>
 
 </br>
-</br>
+<div>
+<%= form_tag change_name_user_path @user , method: :change_name do %>
+<p>
+	<%= "Add/change name:" %>
+	<%= text_field_tag :n %>
+</p>
+<p>
+<%= submit_tag "Apply changes"%>
+</p>
+<% end %>
+</div>
 </br>
 <div>
 <%= form_tag change_signature_user_path @user , method: :change_signature do %>
 <p>
-	<%= "add a signature" %>
+	<%= "Add/change signature" %>
 	<%= text_field_tag :sig %>
 </p>
 <p>
-<%= submit_tag "add signature"%>
+<%= submit_tag "Add/change signature"%>
 </p>
 <% end %>
 </div>
-
+</br>
 <div>
 <%= form_tag change_info_user_path @user , method: :change_info do %>
 <p>
-	<%= "Add Information" %>
+	<%= "Add/Change Information" %>
 	<%= text_field_tag :info %>
 </p>
 
 <p>
-	<%= submit_tag "Update" %>
+	<%= submit_tag "add/change info" %>
 </p>
 <% end %>
 </div>
-
+</br>
 <div>
+<%= "Change display picture" %>
 <%= form_tag edit_display_picture_user_path @user , :html => {:multipart => true}, method: :post do %>
-		<%= label_tag :image_url %>
+		<%= "image url" %>
 		<%= text_field_tag :image_url %><br />
 
 		<%= file_field_tag :image %> 

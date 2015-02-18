@@ -1,17 +1,22 @@
 class UsersController < ApplicationController
 	
+	def change_name
+		User.update(current_user.id, name: params[:n])
+		redirect_to user_path(current_user)
+	end
+
 	def add_info
 		@user = current_user
 	end	
 
 	def change_signature
-		User.update(params[:id] , signature: params[:sig])
-		redirect_to User.find(params[:id])
+		User.update(current_user.id, signature: params[:sig])
+		redirect_to user_path(current_user)
 	end
 
 	def change_info
-		User.update(params[:id] , information: params[:info])
-		redirect_to User.find(params[:id])
+		User.update(current_user.id, information: params[:info])
+		redirect_to user_path(current_user)
 	end
 
 	def edit_info

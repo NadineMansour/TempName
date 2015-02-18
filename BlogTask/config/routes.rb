@@ -14,7 +14,7 @@ get 'signup'  => 'users#new'
 	    post :add_info
       post :change_signature
       post :change_info
-
+      post :change_name
     end
   end
   get '/admin/show_requests', to: 'admins#show_requests'
