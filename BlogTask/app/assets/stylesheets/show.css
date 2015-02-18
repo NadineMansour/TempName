@@ -1,0 +1,61 @@
+
+#basic{
+	padding-top: 70px;
+	padding-left: 10px;
+}
+
+#profileImage{
+	position: absolute;
+	top:70px;
+	left:10px;
+	height: 150px;
+	width: 150px;
+	border: 5px solid;
+}
+
+#userInfo{
+	position: absolute;
+	top:70px;
+	left:180px;
+	height:250px ;  
+	width: 250px;
+	background-color: #ABCDEF
+}
+
+#edit{
+	position: absolute;
+	top:90%;
+	left: 5%;
+}
+
+#userPosts{
+	position: absolute;
+	top:70px;
+	left:450px;
+	height:550px ;  
+	width: 450px;
+	background-color: #ABCDEF
+}
+#post{
+	background-color: #CEECF5
+}
+
+#empty{
+	background-color: #ABCDEF
+}
+
+#addPost{
+	position: absolute;
+	top:70px;
+	left:915px;
+	height:450px ;  
+	width: 350px;
+	background-color: #ABCDEF
+}
+
+#share{
+	position: absolute;
+	top:230px;
+	left:20px;
+
+}
