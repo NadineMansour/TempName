@@ -21,6 +21,12 @@ get 'signup'  => 'users#new'
   get '/admin/accept_request', to: 'admins#accept_request'
   get '/admin/reject_request', to: 'admins#reject_request'
   get '/user/edit_info', to:'users#edit_info'
+  get '/Profiles/NadineProfile' , to:'profiles#NadineProfile'
+  get '/Profiles/BadrProfile' , to:'profiles#BadrProfile'
+  get '/Profiles/MeloukProfile' , to:'profiles#MeloukProfile'
+  get '/Profiles/OufaProfile' , to:'profiles#OufaProfile'
+  get '/Profiles/AliProfile' , to:'profiles#AliProfile'
+  get '/homepages/home' , to:'homepages#home'
 
   # end mariam
   resources :admins do
