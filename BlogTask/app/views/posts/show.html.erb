@@ -14,7 +14,7 @@ Posted by: <%= @posted_by.email %>
 	Text: <%= @post.body %></br>
 </div>
 </br></br></br>
-<% @l = "http://127.0.0.1/posts/" + (@post.id).to_s %>
+<% @l = "http://127.0.0.1:3000/posts/" + (@post.id).to_s %>
 <%= social_share_button_tag("Share this post", :url => @l) %>
 </br>
 
