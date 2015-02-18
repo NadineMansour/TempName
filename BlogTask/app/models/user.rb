@@ -6,7 +6,7 @@ class User < ActiveRecord::Base
 	has_many :posts
 	has_many :comments
 	has_many :replies
-	validates_uniqueness_of :username
+	#validates_uniqueness_of :username
 	validates :information, length: {
     maximum: 240
 	}

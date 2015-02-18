@@ -11,7 +11,7 @@ get 'signup'  => 'users#new'
   resources :users do
     member do
       post :edit_display_picture
-	    post :change_username
+	    post :add_info
       post :change_signature
       post :change_info
     end

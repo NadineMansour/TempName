@@ -49,6 +49,10 @@ class ApplicationController < ActionController::Base
   	user_path(current_user)
   end
 
+  def after_sign_up_path_for(resource)
+      add_info_user_path
+  end
+
   # def get_requests
   #   User.find_by(request: true)
   # end

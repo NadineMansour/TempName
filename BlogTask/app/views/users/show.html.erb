@@ -1,8 +1,4 @@
-
-<!-- edited by Lolo -->
-<%= @user.username %>
-<%= @user.profileImage %>
-
+<%= image_tag(@user.profileImage) %>
 
 <!-- edited by Nadine -->
 <%= form_tag change_signature_user_path @user , method: :change_signature do %>
@@ -56,18 +52,4 @@
 	<% end %>
 <% end %>
 <!-- end -->
-
-<!--anas -->
-<%= form_tag change_username_user_path @user , method: :change_username do %>
-<p>
-	<%= "change username:" %>
-	<%= text_field_tag :un %>
-</p>
-
-<p>
-<%= submit_tag "change username"%>
-</p>
-
-<% end %>
-<!--end -->
 

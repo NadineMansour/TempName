@@ -1,10 +1,10 @@
 class UsersController < ApplicationController
 	
-	def change_username
-		User.update(params[:id], username: params[:un])
-		redirect_to User.find(params[:id])
+	def add_info
+		@user = current_user
 	end	
 
+	
 	def change_signature
 		User.update(params[:id] , signature: params[:sig])
 		redirect_to User.find(params[:id])
@@ -19,6 +19,7 @@ class UsersController < ApplicationController
 	def edit_display_picture
 		
 		@user = current_user
+		binding.pry
 		if params[:image].present?
 			@user.profileImage = params[:image]
 		elsif params[:image_url].present?
