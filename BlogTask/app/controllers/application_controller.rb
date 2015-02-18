@@ -18,5 +18,17 @@ class ApplicationController < ActionController::Base
   end
   helper_method :auth_user_profile?
 
-  
+  #edited by oufa
+  #temp fix delete after devise
+  def current_user
+    User.first
+  end
+  helper_method :current_user
+
+  # def get_requests
+  #   User.find_by(request: true)
+  # end
+  # helper_method :get_requests?
+
+  #end
 end

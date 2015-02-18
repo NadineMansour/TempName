@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  devise_for :users
 get 'signup'  => 'users#new'
 
   resources :post_attachments
@@ -10,6 +11,9 @@ get 'signup'  => 'users#new'
   resources :users do
     member do
       post :edit_display_picture
+	    post :change_username
+      post :change_signature
+      post :change_info
     end
   end
   get '/admin/show_requests', to: 'admins#show_requests'
