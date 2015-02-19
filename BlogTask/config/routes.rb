@@ -36,6 +36,7 @@ get 'signup'  => 'users#new'
     collection do
       get 'authenticated_users'
       get'unauthenticated_users'
+      get 'show_requests'
     end
   end
 
