@@ -1,17 +1,20 @@
+<br>
+<br>
+<br>
+
 <% if @request_users %>
 	<% @request_users.each do |request| %>
-		<%= form_for request do |user| %>
-			<%= user.label :username %>
+			<%= request. email %>
 			<br>
-			<%= user.text_area :username %>
+			<%= "" %>
 			<br>
 			<!-- then add links to cancel and button to reject -->
 			<%= link_to 'accept', admin_accept_request_path(user_request: request.id) %>
 			|
 			<%= link_to 'reject', admin_reject_request_path(user_request: request.id) %>
 			<br>
-		<% end %>
+		
 	<% end %>
 <% else %>
-<p>No requests to show</p>
+<%= "No requests to show" %>
 <% end %>

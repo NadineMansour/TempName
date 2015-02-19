@@ -3,11 +3,13 @@ class AdminsController < ApplicationController
 	def authenticated_users
 		@authenticated_users = User.authenticated 
 	end
+
 	def unauthenticated_users
 		@unauthenticated_users = User.unauthenticated 
 	end
+
 	def show
-	 @admin = Admin.find(params[:id])
+	 
 	end
 
 
