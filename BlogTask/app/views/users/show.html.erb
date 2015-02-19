@@ -28,7 +28,14 @@
 		<br>
 		<!--update-->
 		<div style="width: 50%">
+		<% if @user == current_user and !current_user.auth and !current_user.request %>
 			<%= button_to "Request auth", {:controller => :users, :action => :request_auth} %>
+		<% end %>
+		<br>
+		<br>
+		<% if @user.auth %>
+			<%= image_tag "http://i.imgur.com/Fu963fR.png" %>
+		<% end %>
 		</div>
 		<!--end of update-->
 		 
@@ -69,7 +76,8 @@
 	      		</ul>
 	    	</div>
   		<% end %>
-
+  	<%= "New post: " %>	
+	<br>	
 	<%= p.label :title %>
 	<%= p.text_field :title %>
 	<br>
