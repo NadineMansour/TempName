@@ -1,6 +1,15 @@
+<%= form_tag('/posts', method: :get) do %>
+	Tags:
+	<br>
+	<%= text_field_tag 'search', nil, placeholder: 'Enter search tags...' %>
+	<%= submit_tag 'Search' %>
+<% end %>
+
+
 <% @posts.each do |post| %>
+	<% @post = Post.find(post[:id]) %>
 	<pre>Title:
-	<%= post[:title] %>
+	<%= link_to post[:title], post_path(post[:id]) %>
 	</pre>
 	<br>
 	<pre>Body:
@@ -11,5 +20,13 @@
 	<% @att = @temp_post.post_attachments.all %>
 	<% @att.each do |p| %>
 	  <%= image_tag p.avatar_url %>
+	<% end %>
+	<br>
+	<% @categories = @post.categories %>
+	<% if @categories %>
+	<p>Realted to: </p>
+	<% end %>
+	<% @categories.each do |category| %>
+		<%= link_to category[:name] , category_path(category[:id]) %>
 	<% end %>
 <% end %>

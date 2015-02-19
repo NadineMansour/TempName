@@ -6,7 +6,27 @@ class PostsController < ApplicationController
 	#end mariam
 
 	def index
-		@posts = Post.all.order(created_at: :desc)
+		if params["search"]
+			@search_tags = params["search"]
+			@tags = @search_tags.split(',')
+			@posts_array = []
+			@posts_ids = []
+			@tags.each do |tag|
+				@category = Category.find_by(name: tag)
+				@temp_posts = @category.related_posts
+				if @temp_posts
+					@temp_posts.each do |p|
+						unless @posts_ids.include?(p[:id])
+							@posts_array << p
+							@posts_ids << p[:id]
+						end
+					end  
+				end
+			end
+			@posts = @posts_array
+		else
+			@posts = Post.all.order(created_at: :desc)
+		end
 	end
 
 	def new
