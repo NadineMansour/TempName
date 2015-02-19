@@ -5,6 +5,12 @@ class UsersController < ApplicationController
 		redirect_to user_path(current_user)
 	end
 
+	def request_auth
+		@user=current_user
+		@user.request = true
+		@user.save
+	end
+
 	def add_info
 		@user = current_user
 	end	
