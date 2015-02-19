@@ -1,4 +1,4 @@
-<<!DOCTYPE html>
+<!DOCTYPE html>
 <html>
 <head>
 	<link rel="stylesheet" type="text/css" href="show.css" />
@@ -25,6 +25,12 @@
 		<%= "Name :" %> <%=@user.name %></br>
 		<%= "Email :" %> <%=@user.email %></br>
 		<%= '" '  %> <%=@user.information %> <%= ' " '  %> </br>
+		<br>
+		<!--update-->
+		<div style="width: 50%">
+			<%= button_to "Request auth", {:controller => :users, :action => :request_auth} %>
+		</div>
+		<!--end of update-->
 		 
 		<% if @user.id = current_user.id %>
 			<div id="edit">
@@ -82,6 +88,13 @@
 	<%= p.submit "Create" %>
 		<% end %>
 	</div>
+	
+</div>
+<br>
+<br>
+<br>
+<br>
+<div>
 	
 </div>
 

@@ -6,9 +6,8 @@ class UsersController < ApplicationController
 	end
 
 	def request_auth
-		@user=current_user
-		@user.request = true
-		@user.save
+		User.update(current_user.id, request: true)
+		redirect_to user_path(current_user)
 	end
 
 	def add_info
