@@ -1,3 +1,6 @@
+<br>
+<br>
+<br>
 <%= form_tag('/posts', method: :get) do %>
 	Tags:
 	<br>
@@ -8,6 +11,11 @@
 
 <% @posts.each do |post| %>
 	<% @post = Post.find(post[:id]) %>
+	<% @u = User.find(@post[:user_id]) %>
+	<pre>
+	<pre>Posted by:
+	<%= link_to @u.email, user_path(@u) %>
+	</pre>
 	<pre>Title:
 	<%= link_to post[:title], post_path(post[:id]) %>
 	</pre>
@@ -15,6 +23,8 @@
 	<pre>Body:
 	<%= post[:body] %>
 	</pre>
+	<%= link_to "show", @post %>
+	</pre>	
 	<br>
 	<% @temp_post = Post.find(post[:id]) %>
 	<% @att = @temp_post.post_attachments.all %>
