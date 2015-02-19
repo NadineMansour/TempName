@@ -5,6 +5,7 @@ def index
 
 	def show
 
+
 	end
 
 	def new
@@ -15,13 +16,14 @@ def index
 	def create
 		@reply_params = reply_params
 		@reply_params[:comment_id] = params[:comment_id]
+		@c=Comment.find(params[:comment_id])
 		
 		#@comment_params[:user_id] = session[:user_id]
 		@reply = Reply.new(@reply_params)
 		if @reply.save
-			redirect_to '/posts/:id'
+			redirect_to  post_path(@c.post_id)
 		else 
-			redirect_to '/posts/:id'
+			redirect_to  post_path(@c.post_id)
 		end
 
 	end
@@ -44,4 +46,3 @@ protected
 end 
 
 
-end

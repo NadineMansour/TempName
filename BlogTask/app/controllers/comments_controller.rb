@@ -17,10 +17,11 @@ class CommentsController < ApplicationController
 		
 		#@comment_params[:user_id] = session[:user_id]
 		@comment = Comment.new(@comment_params)
+
 		if @comment.save
-			redirect_to '/posts/:id'
+			redirect_to post_path(params[:post_id])
 		else 
-			redirect_to '/posts/:id'
+			redirect_to post_path(params[:post_id])
 		end
 
 	end

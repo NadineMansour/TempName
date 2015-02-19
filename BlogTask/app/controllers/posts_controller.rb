@@ -36,11 +36,11 @@ class PostsController < ApplicationController
 
 	def create
 		@post_params = post_params
-		@sign = current_user.signature
-		if !@sign.nil?
-			@post_params[:body] = @post_params[:body] + " " + current_user.signature
-		end
-		@post_params[:user_id] = current_user.id
+		#3@sign = current_user.signature
+		##if !@sign.nil?
+			##@post_params[:body] = @post_params[:body] + " " + current_user.signature
+		##end
+		##@post_params[:user_id] = current_user.id
 		@post = Post.new(@post_params)
 		if @post.save
 			if (params[:post_attachments])
@@ -48,10 +48,10 @@ class PostsController < ApplicationController
 	            	@post_attachment = @post.post_attachments.create!(:avatar => a, :post_id => @post.id)
 	        	end
         	end
-			redirect_to user_path(current_user), notice: "The post has been posted successfully."
+			#redirect_to user_path(current_user), notice: "The post has been posted successfully."
 		else
 			render action: :new, alert: "The post has not been posted."
-			redirect_to user_path(current_user)
+			#redirect_to user_path(current_user)
 		end
 	end
 
@@ -66,7 +66,7 @@ class PostsController < ApplicationController
 
 	def show
 		@post = Post.find(params[:id])
-		@posted_by = User.find(@post.user_id)
+		#@posted_by = User.find(@post.user_id)
 		@comments = Comment.where(post_id: @post.id)
 	end
 

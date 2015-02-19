@@ -10,18 +10,41 @@
 </br>
 
 <div>
+
 <%@user=User.find(@post.user_id)%>
 
     Name: <%= @user.name%></br>
-    <img src="@user.profileImage"  style="width:304px;height:228px">
+    <img src="<%@user.profileImage%>"  style="width:304px;height:228px">
+		<br>
+
 	Title: <%= @post.title %></br>
 	
 	Text: <%= @post.body %></br>
+
+
+
 </div>
 </br></br></br>
 <% @l = "http://127.0.0.1:3000/posts/" + (@post.id).to_s %>
 <%= social_share_button_tag("Share this post", :url => @l) %>
 </br>
+
+<% @temp_post = Post.find(@post.user_id) %>
+	<% @att = @temp_post.post_attachments.all %>
+	<% @att.each do |p| %>
+	  <%= image_tag p.avatar_url %>
+	<% end %>
+	<br>
+	<% @categories = @post.categories %>
+	<% if @categories %>
+	<p>Realted to: </p>
+	<% end %>
+	<% @categories.each do |category| %>
+		<%= link_to category[:name] , category_path(category[:id]) %>
+	<% end %>
+
+
+
 
 <% @comment = Comment.new %>
 		<%= form_for @comment , :url => comments_path(post_id: @post.id)  do |c| %>
@@ -37,11 +60,16 @@
 	<% #= #@comment_user.name %>
 		<%= comment.body %>
 		<br>
+		
 		<% @replies = comment.replies %>
 		<% @replies.each do |reply| %>
-	           <% @reply_user =  reply.user %>
-		      <%= @reply_user.name %> 
-		      <%= reply.body %>
+
+		<% @reply_user =  reply.user %>
+	      <%= @reply_user.name %>
+
+	          reply:
+		      <%= reply.body %><br>
+		      <% end %>
 
 <% @reply = Reply.new %>
 		<%= form_for @reply , :url => replys_path(comment_id: comment.id)  do |c| %>
@@ -49,8 +77,8 @@
 			<%= c.text_field :body %>
 				<br>
 			<%= c.submit 'reply' %>
-		<% end %>
+		 <% end %>
 
 		<% end %> 
-		<% end %>
+		
 
