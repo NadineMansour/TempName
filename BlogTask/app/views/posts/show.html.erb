@@ -4,13 +4,18 @@
 <br/>
 <br/>
 
-Posted by: <%= @posted_by.email %> 
+
 <br/>
 	
 </br>
 
 <div>
+<%@user=User.find(@post.user_id)%>
+
+    Name: <%= @user.name%></br>
+    <img src="@user.profileImage"  style="width:304px;height:228px">
 	Title: <%= @post.title %></br>
+	
 	Text: <%= @post.body %></br>
 </div>
 </br></br></br>
@@ -18,19 +23,34 @@ Posted by: <%= @posted_by.email %>
 <%= social_share_button_tag("Share this post", :url => @l) %>
 </br>
 
-Comments:
-</br>
-<table>
-	<tr>
-		<th>Posted by</th>
-		<th>comment</th>
-		<th>Replies</th>
-	</tr>
-<% @comments.each do |c| %>
-<% u = User.find(c.user_id) %>
-	<tr>
-		<td><%= u.email %></td>
-		<td><%= c.body %></td>
-	</tr>
-<% end %>
-</table>
+<% @comment = Comment.new %>
+		<%= form_for @comment , :url => comments_path(post_id: @post.id)  do |c| %>
+			<%= c.label :body %>
+			<%= c.text_field :body %>
+				<br>
+			<%= c.submit 'comment' %>
+		<% end %>
+
+<% @comments = @post.comments %>
+	<% @comments.each do |comment|%>
+	<% #@comment_user =  comment.user %>
+	<% #= #@comment_user.name %>
+		<%= comment.body %>
+		<br>
+		<% @replies = comment.replies %>
+		<% @replies.each do |reply| %>
+	           <% @reply_user =  reply.user %>
+		      <%= @reply_user.name %> 
+		      <%= reply.body %>
+
+<% @reply = Reply.new %>
+		<%= form_for @reply , :url => replys_path(comment_id: comment.id)  do |c| %>
+			<%= c.label :reply %>
+			<%= c.text_field :body %>
+				<br>
+			<%= c.submit 'reply' %>
+		<% end %>
+
+		<% end %> 
+		<% end %>
+

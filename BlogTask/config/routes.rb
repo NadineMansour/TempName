@@ -8,6 +8,8 @@ get 'signup'  => 'users#new'
   #add posts resources
   resources :posts
   resources :categories
+  resources :comments
+  resources :replys
   resources :users do
     member do
       post :edit_display_picture
