@@ -18,6 +18,17 @@
 	<div id="share">
 		<% @l = "http://127.0.0.1:3000/users/" + (@user.id).to_s %>
 		<%= social_share_button_tag("Share this profile", :url => @l) %>
+		<br>
+		<% if @user.auth %>
+			<%= image_tag "http://i.imgur.com/Fu963fR.png" %>
+		<% end %>
+		<br>
+		<div style="width: 100%">
+		<% if @user == current_user and !current_user.auth and !current_user.request %>
+			<%= button_to "Request auth", {:controller => :users, :action => :request_auth} %>
+		<% end %>
+		<br>
+		</div>
 	</div>
 
 
@@ -27,16 +38,7 @@
 		<%= '" '  %> <%=@user.information %> <%= ' " '  %> </br>
 		<br>
 		<!--update-->
-		<div style="width: 50%">
-		<% if @user == current_user and !current_user.auth and !current_user.request %>
-			<%= button_to "Request auth", {:controller => :users, :action => :request_auth} %>
-		<% end %>
-		<br>
-		<br>
-		<% if @user.auth %>
-			<%= image_tag "http://i.imgur.com/Fu963fR.png" %>
-		<% end %>
-		</div>
+		
 		<!--end of update-->
 		 
 		<% if @user.id = current_user.id %>
