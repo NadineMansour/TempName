@@ -47,53 +47,12 @@
 
 	<div id="userPosts">
 		<div id="post">
-			<% @posts.each do |p| %>
-				<h3> <%= p.title %> </h1>
-				<p>  <%= p.body%> </p></br>
-				<% @p = "http://127.0.0.1:3000/posts/" + (p.id).to_s %>
-				<%= link_to "view post" , @p %>
-				<div id="empty">
-					</br>
-					</br>
-				</div>
-			<% end %>			
+			<%= render @posts %>			
 		</div>
 	</div>
 
 	<div id="addPost">
-
-		<%= form_for @post, url: posts_path do |p| %>
-
-		<% if @post.errors.any? %>
-	    	<div id="error_explanation">
-	     		 <h2><%= pluralize(@post.errors.count, "error") %> prohibited this category from being saved:</h2>
-
-	      		<ul>
-	     		 	<% @post.errors.full_messages.each do |message| %>
-	       		 	<li><%= message %></li>
-	      			<% end %>
-	      		</ul>
-	    	</div>
-  		<% end %>
-  	<%= "New post: " %>	
-	<br>	
-	<%= p.label :title %>
-	<%= p.text_field :title %>
-	<br>
-	<%= p.label :body %>
-	<%= p.text_area :body %>
-	<br>
-	<p>Related to : </p>
-	<br>
-	<%= p.collection_check_boxes :category_ids, Category.all, :id, :name %>
-	<br>
-	<%= p.fields_for :post_attachments do |f| %>
-       <%= f.label :avatar %><br>
-       <%= f.file_field :avatar, :multiple => true, name: "post_attachments[avatar][]" %>
-   <% end %>
-	<br>
-	<%= p.submit "Create" %>
-		<% end %>
+	<%= link_to 'New post', new_post_path,id: "new_link", remote: true %> 
 	</div>
 	
 </div>

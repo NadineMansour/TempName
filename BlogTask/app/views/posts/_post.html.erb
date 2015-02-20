@@ -1,0 +1,8 @@
+<h3> <%= post.title %> </h1>
+<p>  <%= post.body%> </p></br>
+<% @p = "http://127.0.0.1:3000/posts/" + (post.id).to_s %>
+<%= link_to "view post" , @p %>
+<div id="empty">
+	</br>
+	</br>
+</div>
