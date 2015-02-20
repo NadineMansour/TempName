@@ -14,7 +14,10 @@ class CommentsController < ApplicationController
 	def create
 		@comment_params = comment_params
 		@comment_params[:post_id] = params[:post_id]
-		
+		@sign = current_user.signature
+    if !@sign.nil?
+      @comment_params[:body] = @comment_params[:body] + " " + current_user.signature
+    end
 		#@comment_params[:user_id] = session[:user_id]
 		@comment = Comment.new(@comment_params)
 		if @comment.save
