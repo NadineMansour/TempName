@@ -54,11 +54,8 @@ class PostsController < ApplicationController
 				@temp_category = Category.find_by(name: c)
 				if @temp_category 
 					unless @categories_ids.include?(@temp_category.id)
-						@new_category = Category.new
-						@new_category.name = c
-						@new_category.save
-						@categories_ids << @new_category.id
-						@categories << @new_category
+						@categories_ids << @temp_category.id
+						@categories << @temp_category
 					end
 				else
 					@new_category = Category.new
