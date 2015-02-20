@@ -14,7 +14,7 @@
 <%@user=User.find(@post.user_id)%>
 
     Name: <%= @user.name%></br>
-    <img src="<%@user.profileImage%>"  style="width:304px;height:228px">
+    <%= image_tag  @user.profileImage%>
 		<br>
 
 	Title: <%= @post.title %></br>
