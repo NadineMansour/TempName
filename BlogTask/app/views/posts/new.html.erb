@@ -1,4 +1,4 @@
-<%= form_for @post, :html => { :multipart => true }, remote: true do |p| %>
+<%= form_for @post, :html => { :multipart => true } do |p| %>
 
 	<% if @post.errors.any? %>
 	    <div id="error_explanation">
@@ -20,7 +20,7 @@
 	<br>
 	<p>Related to : </p>
 	<br>
-	<%= p.collection_check_boxes :category_ids, Category.all, :id, :name %>
+	<%= text_field_tag 'search', nil, placeholder: 'Enter related tags separated by commas.' %>
 	<br>
 	<%= p.fields_for :post_attachments do |f| %>
        <%= f.label :avatar %><br>

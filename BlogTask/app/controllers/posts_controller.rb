@@ -43,6 +43,33 @@ class PostsController < ApplicationController
 			@post_params[:body] = @post_params[:body] + " " + current_user.signature
 		end
 		@post_params[:user_id] = current_user.id
+		@related_categories = params[:search]
+		if @related_categories
+			@all_categories = @related_categories.split(',')
+		end
+		@categories = []
+		@categories_ids = []
+		if @all_categories
+			@all_categories.each do |c|
+				@temp_category = Category.find_by(name: c)
+				if @temp_category 
+					unless @categories_ids.include?(@temp_category.id)
+						@new_category = Category.new
+						@new_category.name = c
+						@new_category.save
+						@categories_ids << @new_category.id
+						@categories << @new_category
+					end
+				else
+					@new_category = Category.new
+					@new_category.name = c
+					@new_category.save
+					@categories_ids << @new_category.id
+					@categories << @new_category
+				end
+			end
+		end
+		@post_params[:categories] = @categories
 		@post = Post.new(@post_params)
 		respond_to do |format|
 			if @post.save
@@ -78,7 +105,7 @@ class PostsController < ApplicationController
 
   protected
 	def post_params
-		params.require(:post).permit(:title, :body, category_ids: [], post_attachments_attributes: [:id, :post_id, :avatar])
+		params.require(:post).permit(:title, :body, post_attachments_attributes: [:id, :post_id, :avatar])
 	end
 end
 
