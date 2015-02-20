@@ -58,7 +58,6 @@ class UsersController < ApplicationController
 		@user = User.find(params[:id])
 		@post = Post.new
 		@posts = Post.where(user_id: @user.id)
-		@post = Post.new
 		@post_attachment = @post.post_attachments.build
 	end
 

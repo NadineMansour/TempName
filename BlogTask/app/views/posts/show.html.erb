@@ -61,11 +61,11 @@
 		<%= comment.body %>
 		<br>
 		
-		<% @replies = comment.replies %>
+		<% @replies = Reply.where(comment_id: comment.id) %>
 		<% @replies.each do |reply| %>
 
-		<% @reply_user =  reply.user %>
-	      <%= @reply_user.name %>
+		<% @reply_user =  User.find(reply.user_id) %>
+	      <%= link_to @reply_user.email, user_path(@reply_user.id) %>
 
 	          reply:
 		      <%= reply.body %><br>
