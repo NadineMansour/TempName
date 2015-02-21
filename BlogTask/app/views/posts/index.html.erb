@@ -1,6 +1,11 @@
+<div></div>
 <br>
 <br>
 <br>
+
+<%= link_to 'New post', new_post_path,id: "new_link", remote: true %> 
+
+
 <%= form_tag('/posts', method: :get) do %>
 	Tags:
 	<br>
@@ -13,30 +18,43 @@
 	<% @post = Post.find(post[:id]) %>
 	<% @u = User.find(@post[:user_id]) %>
 	<pre>
-	<pre>Posted by:
-	<%= link_to @u.email, user_path(@u) %>
+	
+	<pre>
+		Posted by:
+		<%= link_to @u.email, user_path(@u) %>
 	</pre>
-	<pre>Title:
-	<%= link_to post[:title], post_path(post[:id]) %>
+
+	<pre>
+		Title:
+		<%= link_to post[:title], post_path(post[:id]) %>
 	</pre>
-	<br>
-	<pre>Body:
-	<%= post[:body] %>
+
+	<pre>
+		Body:
+		<%= post[:body] %>
+	</pre>
+
+	<pre>
+		<% @temp_post = Post.find(post[:id]) %>
+		<% @att = @temp_post.post_attachments.all %>
+			<p><%= "Attachments" %></p>
+			<% @att.each do |p| %>
+	  			<%= image_tag p.avatar_url %>
+			<% end %>
+	</pre>
+
+	<pre>
+		<% @categories = @post.categories %>
+		<% if @categories %>
+			<p><%= "Related to:" %></p>
+		<% end %>
+		<% @categories.each do |category| %>
+			<%= link_to category[:name] , category_path(category[:id]) %>
+		<% end %>
 	</pre>
 	<%= link_to "show", @post %>
 	</pre>	
 	<br>
-	<% @temp_post = Post.find(post[:id]) %>
-	<% @att = @temp_post.post_attachments.all %>
-	<% @att.each do |p| %>
-	  <%= image_tag p.avatar_url %>
-	<% end %>
+	
 	<br>
-	<% @categories = @post.categories %>
-	<% if @categories %>
-	<p>Realted to: </p>
-	<% end %>
-	<% @categories.each do |category| %>
-		<%= link_to category[:name] , category_path(category[:id]) %>
-	<% end %>
 <% end %>
