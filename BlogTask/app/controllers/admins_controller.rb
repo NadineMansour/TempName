@@ -12,6 +12,21 @@ class AdminsController < ApplicationController
 	 
 	end
 
+	def login
+	end
+
+	def signin
+  	if params[:admins][:pass] == "hello"
+  		
+  		redirect_to '/admins/show'
+  	else
+  		
+  		redirect_to '/admins/login'
+  end
+end
+
+
+
 
 	#edited by mariam
 	def show_requests

@@ -20,6 +20,8 @@ get 'signup'  => 'users#new'
       post :request_auth
     end
   end
+
+
   get '/admin/show_requests', to: 'admins#show_requests'
   get '/admin/accept_request', to: 'admins#accept_request'
   get '/admin/reject_request', to: 'admins#reject_request'
@@ -30,7 +32,8 @@ get 'signup'  => 'users#new'
   get '/Profiles/OufaProfile' , to:'profiles#OufaProfile'
   get '/Profiles/AliProfile' , to:'profiles#AliProfile'
   get '/homepages/home' , to:'homepages#home'
-
+  get '/admins/login', to: 'admins#login'
+  post '/admins/login', to:'admins#signin'
   # end mariam
   resources :admins do
     collection do

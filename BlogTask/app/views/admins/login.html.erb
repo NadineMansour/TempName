@@ -1,0 +1,11 @@
+
+<div></div>
+<%= form_for :admins, method: :signin do |f| %>
+	<strong><%= f.label :"Admin Login" %></strong>
+	
+	<br>
+	
+	<strong><%= f.label :"Password:" %></strong>
+	<%= f.password_field :pass %>
+	<%= f.submit "Login" %>
+	<% end %>
