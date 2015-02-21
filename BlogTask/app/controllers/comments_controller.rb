@@ -14,7 +14,6 @@ class CommentsController < ApplicationController
 	def create
 		@comment_params = comment_params
 		@comment_params[:post_id] = params[:post_id]
-		
     if !current_user.signature.nil?
       @comment_params[:body] = @comment_params[:body] + " " + current_user.signature
     end

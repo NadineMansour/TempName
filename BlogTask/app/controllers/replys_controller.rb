@@ -17,7 +17,6 @@ def index
 		@reply_params = reply_params
 		@reply_params[:comment_id] = params[:comment_id]
     @reply_params[:user_id] = current_user.id
-    
     if !current_user.signature.nil?
       @reply_params[:body] = @reply_params[:body] + " " + current_user.signature
     end

@@ -1,12 +1,23 @@
+<div></div>
+<div id="Cats">
 <%= form_for @category do |c| %>
-	<%= c.label :name %>
+	<h5><strong>Category: </strong></h5>
 	<%= c.text_field :name %>
 	<br>
 	<% @posts = @category.related_posts %>
+	<div id="CategoriesPs">
 	<% @posts.each do |post| %>
-		<% @post = Post.find(post[:id]) %>
-		Title : <%= link_to post[:title], @post %>
+		<div id="PinC">
+		<h3><em>Title :</em> 
+		<%= link_to post[:title], post %>
+		</h3>
 		<br>
-		Body : <%= post[:body] %>
+		<h4><em>Body :</em> 
+		<%= post[:body] %></h4>
+		</div>
+		<br>
+		<br>
 	<% end %>
+	</div>
 <% end %>
+</div>
