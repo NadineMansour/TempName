@@ -6,6 +6,7 @@ class PostsController < ApplicationController
 	#end mariam
 
 	def index
+		@post = Post.new
 		if params["search"]
 			@search_tags = params["search"]
 			@tags = @search_tags.split(',')

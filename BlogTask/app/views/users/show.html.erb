@@ -5,10 +5,12 @@
 	<title></title>
 </head>
 <body>
+<div id="userProf">
 <div id="bar1" >
 
 </div>
-
+<br>
+<br>
 <div id="basic">
 
 	<div id="profileImage">
@@ -33,11 +35,18 @@
 
 
 	<div id="userInfo">
-		<%= "Name :" %> <%=@user.name %></br>
-		<%= "Email :" %> <%=@user.email %></br>
-		<%= '" '  %> <%=@user.information %> <%= ' " '  %> </br>
+		<strong>Name:</strong>
+		</br> 
+		<%=@user.name %></br>
+		</br>
+		<strong>Email:</strong>
+		</br> 
+		<%=@user.email %></br>
+		</br><br>
+		<strong>Info:</strong></br>
+		<%= @user.information %></br>
 		<br>
-		 
+		<br>
 		<% if @user.id = current_user.id %>
 			<div id="edit">
 				<%= link_to "Edit your information" , '/user/edit_info' %>
@@ -52,7 +61,37 @@
 	</div>
 
 	<div id="addPost">
-	<%= link_to 'New post', new_post_path,id: "new_link", remote: true %> 
+	<%= form_for @post, :html => { :multipart => true }, remote: true do |p| %>
+
+	<% if @post.errors.any? %>
+	    <div id="error_explanation">
+	      <h2><%= pluralize(@post.errors.count, "error") %> prohibited this category from being saved:</h2>
+
+	      <ul>
+	      <% @post.errors.full_messages.each do |message| %>
+	        <li><%= message %></li>
+	      <% end %>
+	      </ul>
+	    </div>
+  	<% end %>
+
+	<%= p.label :title %>
+	<%= p.text_field :title %>
+	<br>
+	<%= p.label :body %>
+	<%= p.text_area :body %>
+	<br>
+	<p>Related to : </p>
+	<br>
+	<%= text_field_tag 'search', nil, placeholder: 'Enter related tags separated by commas.' %>
+	<br>
+	<%= p.fields_for :post_attachments do |f| %>
+       <%= f.label :avatar %><br>
+       <%= f.file_field :avatar, :multiple => true, name: "post_attachments[avatar][]" %>
+   <% end %>
+	<br>
+	<%= p.submit "Create" %>
+<% end %>
 	</div>
 	
 </div>
@@ -60,10 +99,8 @@
 <br>
 <br>
 <br>
-<div>
-	
-</div>
 
+</div>
 </body>
 </html>
 

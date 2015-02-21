@@ -1,3 +1,12 @@
+#userProf 
+{
+	background-color: #673c4f;
+	min-width: 100%;
+	min-height: 1000px;
+	padding-top: 70px;
+	padding-left: 10px;
+	font-size: 14px;
+}
 
 #basic{
 	padding-top: 70px;
@@ -52,7 +61,8 @@
 	left:180px;
 	height:250px ;  
 	width: 250px;
-	background-color: #ABCDEF
+	background-color: #83b5d1;
+	font-size: 14px;
 }
 
 #edit{
@@ -63,18 +73,18 @@
 
 #userPosts{
 	position: absolute;
-	top:70px;
+	top:60px;
 	left:450px;
 	height:550px ;  
 	width: 450px;
-	background-color: #ABCDEF
+	background-color: #673c4f
 }
 #post{
-	background-color: #CEECF5
+	background-color: #83b5d1
 }
 
 #empty{
-	background-color: #ABCDEF
+	background-color: #673c4f
 }
 
 #addPost{
@@ -83,7 +93,7 @@
 	left:915px;
 	height:450px ;  
 	width: 350px;
-	background-color: #ABCDEF
+	background-color: #83b5d1
 }
 
 #share{

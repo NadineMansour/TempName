@@ -2,59 +2,95 @@
 <br>
 <br>
 <br>
+ 
+<div id="newPost">
+<%= form_for @post, :html => { :multipart => true }, remote: true do |p| %>
 
-<%= link_to 'New post', new_post_path,id: "new_link", remote: true %> 
+		<% if @post.errors.any? %>
+		    <div id="error_explanation">
+		      <h2><%= pluralize(@post.errors.count, "error") %> prohibited this category from being saved:</h2>
 
+		      <ul>
+		      <% @post.errors.full_messages.each do |message| %>
+		        <li><%= message %></li>
+		      <% end %>
+		      </ul>
+		    </div>
+	  	<% end %>
 
-<%= form_tag('/posts', method: :get) do %>
-	Tags:
-	<br>
-	<%= text_field_tag 'search', nil, placeholder: 'Enter search tags...' %>
-	<%= submit_tag 'Search' %>
-<% end %>
+		<%= p.label :title %>
+		<%= p.text_field :title %>
+		<br>
+		<%= p.label :body %>
+		<%= p.text_area :body %>
+		<br>
+		<p>Related to : </p>
+		<br>
+		<%= text_field_tag 'search', nil, placeholder: 'Enter related tags separated by commas.' %>
+		<br>
+		<%= p.fields_for :post_attachments do |f| %>
+	       <%= f.label :avatar %><br>
+	       <%= f.file_field :avatar, :multiple => true, name: "post_attachments[avatar][]" %>
+  	 	<% end %>
+		<br>
+		<div style="width: 100px; text-align: center">
+		<%= p.submit "Create" %>
+		</div>
+	<% end %>
+</div>
+</br>
+</br>
+<div id="search">
+	<%= form_tag('/posts', method: :get) do %>
+		Tags:
+		<br>
+		<%= text_field_tag 'search', nil, placeholder: 'Enter search tags...' %>
+			<div style="width: 100px; text-align: center"><%= submit_tag 'Search' %></div>
+		<% end %>
+</div>
+</br>
+</br>
 
+<div id="allposts">
+	<% @posts.each do |post| %>
+	<div id="singlePost">
+		<% @post = Post.find(post[:id]) %>
+		<% @u = User.find(@post[:user_id]) %>
+		
+			<h2><strong><%= link_to post[:title], post_path(post[:id]) %></strong></h2>
+			</br>
+			
+			
+			<h5><strong>Posted by:</strong> </br>
+			<%= link_to @u.email, user_path(@u) %>
+			</h5>
+			
+			<br>
 
-<% @posts.each do |post| %>
-	<% @post = Post.find(post[:id]) %>
-	<% @u = User.find(@post[:user_id]) %>
-	<pre>
-	
-	<pre>
-		Posted by:
-		<%= link_to @u.email, user_path(@u) %>
-	</pre>
+			<h5><%= post.created_at %></h5>
+			
+			<h3><%= post[:body] %></h3>
 
-	<pre>
-		Title:
-		<%= link_to post[:title], post_path(post[:id]) %>
-	</pre>
-
-	<pre>
-		Body:
-		<%= post[:body] %>
-	</pre>
-
-	<pre>
-		<% @temp_post = Post.find(post[:id]) %>
-		<% @att = @temp_post.post_attachments.all %>
-			<p><%= "Attachments" %></p>
-			<% @att.each do |p| %>
-	  			<%= image_tag p.avatar_url %>
+			<% @att = @post.post_attachments.all %>
+			<% if @att and @att.length > 0 %>
+				<h6><%= "Attachments" %></h6>
+				<% @att.each do |p| %>
+		  			<div id="attach1">
+		  			<%= image_tag p.avatar_url %>
+		  			</div>
+		  			<br>
+				<% end %>
 			<% end %>
-	</pre>
-
-	<pre>
-		<% @categories = @post.categories %>
-		<% if @categories %>
-			<p><%= "Related to:" %></p>
-		<% end %>
-		<% @categories.each do |category| %>
-			<%= link_to category[:name] , category_path(category[:id]) %>
-		<% end %>
-	</pre>
-	<%= link_to "show", @post %>
-	</pre>	
+			<br>
+			<% @categories = @post.categories %>
+			<% if @categories and @categories.length > 0 %>
+				<%= "Related to:" %>
+				<% @categories.each do |category| %>
+					<%= link_to category[:name] , category_path(category[:id]) %>
+				<% end %>
+			<% end %>
+	</div>
+	<% end %>
+		
+	</div>
 	<br>
-	
-	<br>
-<% end %>
