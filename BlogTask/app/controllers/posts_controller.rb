@@ -38,8 +38,7 @@ class PostsController < ApplicationController
 
 	def create
 		@post_params = post_params
-		@sign = current_user.signature
-		if !@sign.nil?
+		if !(current_user.signature).nil?
 			@post_params[:body] = @post_params[:body] + " " + current_user.signature
 		end
 		@post_params[:user_id] = current_user.id
