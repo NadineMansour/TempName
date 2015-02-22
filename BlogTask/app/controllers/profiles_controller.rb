@@ -15,6 +15,18 @@ class ProfilesController < ApplicationController
 	def AliProfile
 	end
 
+	def AnasProfile
+	end
+
+	def MariamProfile
+	end
+
+	def SohaProfile
+	end
+
+	def MarwaProfile
+	end
+	
 	def backToHome
 	end
 
