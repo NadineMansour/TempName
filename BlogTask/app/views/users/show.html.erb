@@ -35,6 +35,7 @@
 
 
 	<div id="userInfo">
+		<div id="content">
 		<strong>Name:</strong>
 		</br> 
 		<%=@user.name %></br>
@@ -48,6 +49,7 @@
 		<br>
 		<br>
 		<% if @user.id = current_user.id %>
+		</div>
 			<div id="edit">
 				<%= link_to "Edit your information" , '/user/edit_info' %>
 			</div>

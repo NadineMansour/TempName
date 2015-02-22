@@ -1,12 +1,4 @@
-#userProf 
-{
-	background-color: #673c4f;
-	min-width: 100%;
-	min-height: 1000px;
-	padding-top: 70px;
-	padding-left: 10px;
-	font-size: 14px;
-}
+
 
 #basic{
 	padding-top: 70px;
@@ -63,6 +55,14 @@
 	width: 250px;
 	background-color: #83b5d1;
 	font-size: 14px;
+	border-radius: 10px;
+}
+
+#content
+{
+	position: absolute;
+	left:5px;
+	top:5px;
 }
 
 #edit{
@@ -77,14 +77,15 @@
 	left:450px;
 	height:550px ;  
 	width: 450px;
-	background-color: #673c4f
+	background-color: #83b5d1
 }
 #post{
+	border-radius: 10px;
 	background-color: #83b5d1
 }
 
 #empty{
-	background-color: #673c4f
+	background-color: #ffffff
 }
 
 #addPost{
@@ -93,6 +94,7 @@
 	left:915px;
 	height:450px ;  
 	width: 350px;
+	border-radius: 10px;
 	background-color: #83b5d1
 }
 
@@ -100,5 +102,4 @@
 	position: absolute;
 	top:230px;
 	left:20px;
-
 }

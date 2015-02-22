@@ -1,7 +1,7 @@
 
 #allposts
 {
-	background-color: #440000;
+	background-color: #83b5d1;
 	font-size: 15px;
 	width: 90;
 	max-width: 90%;
@@ -23,7 +23,7 @@
 	margin-left: auto;
 	margin-right: auto;
 	width: 90%;
-	background-color: #007700;
+	background-color: #DBDBDB;
 	padding-left: 15px;
 	padding-top: 10px;
 	padding-bottom: 10px;
@@ -43,7 +43,7 @@
 
 #newPost 
 {
-	background-color: #440000;
+	background-color: #83b5d1;
 	padding-left: 15px;
 	max-width: 90%;
 	margin-right: auto;
@@ -57,7 +57,7 @@
 	width: 90%;
 	margin-left: auto;
 	margin-right: auto;
-	background-color: #c124f1;
+	background-color: #ffffff;
 	font-size: 18px;
 	font-family: Optima, Segoe, 'Segoe UI', Candara, Calibri, Arial, sans-serif;
 }
@@ -81,9 +81,10 @@
 #search 
 {
 	padding-left: 15px;
-	background-color: #440000 ;
+	background-color: #83b5d1 ;
 	width: 90%;
 	max-width: 90%;
 	margin-right: auto;
 	margin-left: auto;
+
 }
