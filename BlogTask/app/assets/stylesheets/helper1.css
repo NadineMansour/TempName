@@ -14,13 +14,13 @@
 
 #Body1 
 {
-	background-color: #DA131D;
+	background-image: : url("http://imgur.com/oF7GRd9");
 	text-align:center;
 }
 
 #Body1 h1
 {
-	color: #ffffff;
+	color: #000000;
 	text-align: center;
 	font-size: 50px;
 	font-family: Optima, Segoe, 'Segoe UI', Candara, Calibri, Arial, sans-serif;
@@ -47,7 +47,7 @@
 
 #Body1 p
 {
-	color: #ffffff;
+	color: #000000;
 	font-family: Optima, Segoe, 'Segoe UI', Candara, Calibri, Arial, sans-serif;
 	text-decoration: none;
 	font-size: 22px;	
@@ -94,14 +94,14 @@
 
 #Body3
 {
-	background-color: #DA131D;
+	background-image: url("http://imgur.com/oF7GRd9");
 	text-align: center; 
 	padding-bottom: 5px;
 }
 
 #Body3 h1
 {
-	color: #ffffff;
+	color: #000000;
 	text-align: center;
 	text-decoration: underline;
 	font-size: 50px;

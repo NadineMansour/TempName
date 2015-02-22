@@ -1,6 +1,56 @@
-	<%= link_to"view unauthenticated users " , unauthenticated_users_admins_path %>	
-</br> 
-	<%= link_to"view authenticated users " , authenticated_users_admins_path %>
-<br>
-	<%= link_to "View requests", show_requests_admins_path %>
+<link rel="stylesheet" type="text/css" href="admins.css" />
+	<title></title>
+
+	<div id="main">
+			<div id="unauthe">
+				<strong><%= "view unauthenticated users " %> </strong>
+					<div id="unAuthUsers">
+						<ul>
+							<% @unauthenticated_users.each do |user| %>
+								<li>
+								<%=  user.email %> 
+								</li>
+							<% end %>
+						</ul>
+
+			</div>
+	</div>
+
+	<div id="authe">
+		<strong><%= "view authenticated users " %></strong>
+			<div id="authUser">
+				<ul>
+						<% @authenticated_users.each do |user| %>
+							<li>
+								<%=  user.email %> 
+							</li>
+						<% end %>
+				</ul>
+			</div>
+	</div>
+
+	<div id="autheRequests">	
+		<strong><%=  "View requests" %></strong>
+			<div id="req">
+				<br>
+
+				<% if @request_users %>
+					<% @request_users.each do |request| %>
+							<%= request. email %>
+							<br>
+							<!-- then add links to cancel and button to reject -->
+							<%= link_to 'accept', admin_accept_request_path(user_request: request.id) %>
+							|
+							<%= link_to 'reject', admin_reject_request_path(user_request: request.id) %>
+							<br>
+							<br>
+						
+					<% end %>
+				<% else %>
+				<%= "No requests to show" %>
+				<% end %>				
+			</div>
+	</div>
+
+</div>
 

@@ -9,7 +9,9 @@ class AdminsController < ApplicationController
 	end
 
 	def show
-	 
+	 @authenticated_users = User.authenticated 
+	 @unauthenticated_users = User.unauthenticated 
+	 @request_users = User.where(request: true)
 	end
 
 	def login
@@ -37,11 +39,9 @@ end
 		@my_user=User.find(params[:user_request])
 		@my_user.request=false
 		@my_user.auth=true
-		if @my_user.save
-			render action: :show_requests, notice: "The user can not be authenticated."
-		else
-			render action: :show_requests, alert: "The user can not be authenticated."
-		end
+		@my_user.save
+			redirect_to '/admins/show'
+		
 
 	end
 
@@ -49,11 +49,8 @@ end
 		@my_user=User.find(params[:user_request])
 		@my_user.request=false
 		@my_user.auth=false
-		if @my_user.save
-			render action: :show_requests, notice: "The user can not be authenticated."
-		else
-			render action: :show_requests, alert: "The user can not be authenticated."
-		end
+		@my_user.save
+			redirect_to '/admins/show'
 
 	end
 	#end soha 

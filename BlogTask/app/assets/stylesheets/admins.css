@@ -1,0 +1,44 @@
+#main
+{
+	margin-left: auto;
+	margin-right: auto;
+	width:90%;
+	height:90%;
+}
+
+#unauthe
+{
+	text-align: center;
+	position: absolute;
+	top:50px;
+	left:20px;
+	height:90% ;  
+	width: 25%;
+	background-color: #83b5d1;
+	font-size: 14px;
+}
+
+#authe
+{
+	text-align: center;
+	position: absolute;
+	top:50px;
+	left:450px;
+	height:90% ;  
+	width: 25%;
+	background-color: #83b5d1;
+	font-size: 14px;
+}
+
+
+#autheRequests
+{
+	text-align: center;
+	position: absolute;
+	top:50px;
+	left:890px;
+	height:90% ;  
+	width: 25%;
+	background-color: #83b5d1;
+	font-size: 14px;
+}
