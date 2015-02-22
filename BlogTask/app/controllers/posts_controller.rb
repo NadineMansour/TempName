@@ -67,10 +67,50 @@ class PostsController < ApplicationController
 					end
 				end
 			end
+
+			@post_txt = post_params[:body]
+			@www_index = @post_txt.index("www.youtube.com/watch?v=")
+			@video_ids = []
+			if @www_index
+				while @www_index > -1 do	
+					if @post_txt
+						@video_id = @post_txt[@www_index + 24, 11]
+					end
+					@cut = @www_index + 24 + 11
+					if @post_txt
+					@total_len = @post_txt.length
+					else 
+						@total_len = 0
+					end
+					if @post_txt
+						@post_txt = @post_txt[@www_index + 24 + 11, @total_len - @cut -1]
+						@video_ids << @video_id
+						if @post_txt
+							@www_index = @post_txt.index("www.youtube.com/watch?v=")
+						else
+							@www_index = -1
+						end
+					end
+					unless @www_index
+						@www_index = -1
+					end
+				end
+			end
+
+
+
 			@post_params[:categories] = @categories
 			@post = Post.new(@post_params)
 			respond_to do |format|
 				if @post.save
+					if @video_ids
+						@video_ids.each do |v|
+							@temp_video = Mediavideo.new
+							@temp_video.youtube_id = v
+							@temp_video.post_id = @post.id
+							@temp_video.save
+						end
+					end
 					if (params[:post_attachments])
 						params[:post_attachments]['avatar'].each do |a|
 			            	@post_attachment = @post.post_attachments.create!(:avatar => a, :post_id => @post.id)

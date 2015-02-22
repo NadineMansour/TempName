@@ -1,5 +1,6 @@
 class Post < ActiveRecord::Base
 	#edited_by_mariam
+	has_many :mediavideos
 	belongs_to :user, dependent: :destroy
 	#edited_by_mariam
 	#has_many :categories
