@@ -17,7 +17,7 @@ class CommentsController < ApplicationController
     if !current_user.signature.nil?
       @comment_params[:body] = @comment_params[:body] + " " + current_user.signature
     end
-		#@comment_params[:user_id] = session[:user_id]
+		@comment_params[:user_id] = current_user.id
 		@comment = Comment.new(@comment_params)
 		if @comment.save
 			redirect_to post_path(params[:post_id])

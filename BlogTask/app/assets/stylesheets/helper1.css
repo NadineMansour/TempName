@@ -151,3 +151,66 @@
 	color: #ffffff;
 	font-size: 30px;
 }
+
+.viewP
+{
+	padding-top: 5px;
+	padding-left: 5px;
+	background-color: #992211;
+	width: 90%;
+	margin-left: auto;
+	margin-right: auto;
+	font-family: Optima;
+}
+
+.viewP h2
+{
+	text-align: left;	
+}
+
+#attach7
+{
+	width: 80%;
+	max-width: 80%;
+	height: 300px;
+	margin-right: auto;
+	margin-left: auto;
+}
+
+#attach7 img
+{
+	width: 100%;
+	height: 100%;
+}
+
+.postAComment
+{
+	padding-top: 5px;
+	padding-left: 5px;
+	background-color: #ab1122;
+	width: 90%;
+	margin-left: auto;
+	margin-right: auto;
+	font-family: Optima;
+}
+
+.PostComments
+{
+	padding-top: 5px;
+	padding-left: 5px;
+	background-color: #ab1122;
+	width: 90%;
+	margin-left: auto;
+	margin-right: auto;
+	font-family: Optima;
+}
+
+.OneComment
+{
+	background-color: #449944;
+}
+
+.Replies
+{
+	background-color: #994499;	
+}

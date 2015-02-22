@@ -1,86 +1,101 @@
 <div></div>
-
-<br/>
-<br/>
-<br/>
-
-
-<br/>
-	
-</br>
-
-<div>
-
-<% @user = User.find(@post.user_id) %>
-
-    Posted by: 
-    <%= link_to @user.email, user_path(@user) %>
-    </br>
-    <%= image_tag  @user.profileImage%>
-	<br>
-
-	Title: <%= @post.title %></br>
-	
-	Text: <%= @post.body %></br>
+<br/><br/><br/>
 
 
 
-</div>
-</br></br></br>
-<% @l = "http://127.0.0.1:3000/posts/" + (@post.id).to_s %>
-<%= social_share_button_tag("Share this post", :url => @l) %>
-</br>
-
-<% @temp_post = Post.find(@post.user_id) %>
-	<% @att = @temp_post.post_attachments.all %>
-	<% @att.each do |p| %>
-	  <%= image_tag p.avatar_url %>
-	<% end %>
-	<br>
+<div class="viewP">
+	<% @user = User.find(@post.user_id) %>
+	<h5>Posted by: </h5><h2><%= link_to @user.email, user_path(@user) %></h2>
+	<h6><%= @post.created_at %></h6></br>
+	<h5>Title:  </h5><h3><%= @post.title %></h3></br>
+	<h5>Body: </h5><h4><%= @post.body %></h4><br>
+	<% @l = "http://127.0.0.1:3000/posts/" + (@post.id).to_s %>
+	<%= social_share_button_tag("Share this post", :url => @l) %>
 	<% @categories = @post.categories %>
-	<% if @categories %>
-	<p>Realted to: </p>
+	<% if @categories and @categories.length > 0 %>
+		<h5><%= "Categories: " %>
+		<% @categories.each do |c|%>
+			<%= link_to c.name, category_path(c.id) %>
+		<% end %></h5>
 	<% end %>
-	<% @categories.each do |category| %>
-		<%= link_to category[:name] , category_path(category[:id]) %>
+	<br>
+	<% @attachments = @post.post_attachments.all %>
+	<% if @attachments and @attachments.length > 0 %>
+		<% @attachments.each do |a| %>
+			<div id="attach7">
+				<%= image_tag a.avatar_url %>
+			</div>
+			</br>
+		<% end %>
 	<% end %>
+</div>
 
+</br>
 
-
-
-<% @comment = Comment.new %>
-		<%= form_for @comment , :url => comments_path(post_id: @post.id)  do |c| %>
-			<%= c.label :body %>
+<div class="postAComment">
+	<h3>Post a comment</h3>
+	<% @comment = Comment.new %>
+	<%= form_for @comment , :url => comments_path(post_id: @post.id)  do |c| %>
 			<%= c.text_field :body %>
 				<br>
 			<%= c.submit 'comment' %>
 		<% end %>
+</div>
 
-<% @comments = @post.comments %>
-	<% @comments.each do |comment|%>
-	<% #@comment_user =  comment.user %>
-	<% #= #@comment_user.name %>
-		<%= comment.body %>
-		<br>
-		
-		<% @replies = Reply.where(comment_id: comment.id) %>
-		<% @replies.each do |reply| %>
+</br>
 
-		<% @reply_user =  User.find(reply.user_id) %>
-	      <%= link_to @reply_user.email, user_path(@reply_user.id) %>
-
-	          reply:
-		      <%= reply.body %><br>
-		      <% end %>
-
-<% @reply = Reply.new %>
-		<%= form_for @reply , :url => replys_path(comment_id: comment.id)  do |c| %>
-			<%= c.label :reply %>
-			<%= c.text_field :body %>
+<div class="PostComments">
+	<% @comments = @post.comments %>
+	<% if @comments and @comments.length > 0 %>
+		<h3><%= "Comments" %></h3>
+		<% @comments.each do |c|%>
+			<div class="OneComment">
+				<% @user = User.find(c.user_id) %>
+				<h4><%= link_to @user.email+":", @user %></h4>
+				<h5><%= c.body %></h5>
 				<br>
-			<%= c.submit 'reply' %>
-		 <% end %>
+					<div class="Replies">
+						<% @replies = Reply.where(comment_id: c.id) %>
+						<% if @replies and @replies.length > 0 %>
+							<h4><%= "Replies" %></h4>
+							<% @replies.each do |reply| %>
+								<% @reply_user =  User.find(reply.user_id) %>
+								<h5><%= link_to @reply_user.email+":", user_path(@reply_user.id) %></h5>
+								<h6><%= reply.body %></h6>
+							<% end %>
+						<% end %>
+					</div> 
+					<br>
+					<div id="">
+						<h4>Post a reply</h4>
+						<% @reply = Reply.new %>
+						<%= form_for @reply , :url => replys_path(comment_id: c.id)  do |c| %>
+							<%= c.text_field :body %>
+							<%= c.submit 'reply' %>
+						 <% end %>
+					</div>
+			</div>
+		<% end %>
+	<% end %>
+</div>
 
-		<% end %> 
+
+	
 		
+		
+		
+
+		
+	      
+
+	      
+
+
+		
+
+		
+
+
+
+
 
