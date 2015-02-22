@@ -33,7 +33,7 @@
 
 #Body1 h3
 {
-	color: #ffffff;
+	color: #000000;
 	font-family: Optima, Segoe, 'Segoe UI', Candara, Calibri, Arial, sans-serif;
 	text-decoration: underline;
 	font-size: 30px;
@@ -104,7 +104,7 @@
 
 #Body3 h3
 {
-	color: #ffffff;
+	color: #000000;
 	font-family: Optima, Segoe, 'Segoe UI', Candara, Calibri, Arial, sans-serif;
 	text-decoration: underline;
 	font-size: 30px;	
@@ -150,8 +150,9 @@
 {
 	padding-top: 5px;
 	padding-left: 5px;
-	background-color: #992211;
+	background-color: #83b5d1;
 	width: 90%;
+	border-radius: 10px;
 	margin-left: auto;
 	margin-right: auto;
 	font-family: Optima;
@@ -159,7 +160,8 @@
 
 .viewP h2
 {
-	text-align: left;	
+	text-align: left;
+	border-radius: 10px;	
 }
 
 #attach7
@@ -181,8 +183,9 @@
 {
 	padding-top: 5px;
 	padding-left: 5px;
-	background-color: #ab1122;
+	background-color: #83b5d1;
 	width: 90%;
+	border-radius: 10px;
 	margin-left: auto;
 	margin-right: auto;
 	font-family: Optima;
@@ -192,8 +195,9 @@
 {
 	padding-top: 5px;
 	padding-left: 5px;
-	background-color: #ab1122;
+	background-color: #83b5d1;
 	width: 90%;
+	border-radius: 10px;
 	margin-left: auto;
 	margin-right: auto;
 	font-family: Optima;
@@ -201,10 +205,19 @@
 
 .OneComment
 {
-	background-color: #449944;
+	width: 90%;
+	margin-left: auto;
+	margin-right: auto;
+	background-color: #FCBB5A;
+	border-radius: 10px;
 }
 
 .Replies
 {
-	background-color: #994499;	
+	
+	margin-left: auto;
+	margin-right: auto;
+	background-color: #DBDBDB;
+	width: 80%;
+	border-radius: 10px;
 }

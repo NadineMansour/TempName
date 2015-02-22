@@ -8,6 +8,7 @@
 	padding-left: 15px;
 	padding-right: 15px;
 	padding-top: 5px;
+	border-radius: 10px;
 	text-align: center;
 	margin-right: auto;
 	margin-left: auto;
@@ -24,6 +25,7 @@
 	margin-right: auto;
 	width: 90%;
 	background-color: #DBDBDB;
+	border-radius: 10px;
 	padding-left: 15px;
 	padding-top: 10px;
 	padding-bottom: 10px;
@@ -46,6 +48,7 @@
 	background-color: #83b5d1;
 	padding-left: 15px;
 	max-width: 90%;
+	border-radius: 10px;
 	margin-right: auto;
 	margin-left: auto;
 	padding-right: 15px
@@ -57,24 +60,26 @@
 	width: 90%;
 	margin-left: auto;
 	margin-right: auto;
-	background-color: #ffffff;
+	background-color: #83b5d1;
 	font-size: 18px;
 	font-family: Optima, Segoe, 'Segoe UI', Candara, Calibri, Arial, sans-serif;
 }
 
 #Cats
 {
-	background-color: #a4589f;
+	background-color: #83b5d1;
+	border-radius: 10px;
 	padding-bottom: 10px;
 }
 
 #PinC
 {
 	max-width: 90%;
-	width: 90%;
+	width: 80%;
 	margin-left: auto;
 	margin-right: auto;
-	background-color: #e57f40;
+	border-radius: 10px;
+	background-color: #DBDBDB;
 
 }
 
@@ -84,7 +89,7 @@
 	background-color: #83b5d1 ;
 	width: 90%;
 	max-width: 90%;
+	border-radius: 10px;
 	margin-right: auto;
 	margin-left: auto;
-
 }
